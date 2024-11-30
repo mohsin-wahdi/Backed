@@ -17,7 +17,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("hello world");
+  res.send("hello world hay");
 });
 app.get("/about", (req, res) => {
   res.send("About");
