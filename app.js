@@ -46,7 +46,18 @@ app.get("/contact", function (req, res) {
   res.render("contact");
 });
 
-app.use()
+// Handling the error 
+app.get("/", function (req, res, next) {
+  throw Error("something went Wrong");
+});
 
+// declartion the error
+app.use(function errorHandler(err, req, res, next) {
+  if (res.headersSent) {
+    return next(err);
+  }
+  res.status(500);
+  res.render("error", { error: err });
+});
 
 app.listen(3000);
